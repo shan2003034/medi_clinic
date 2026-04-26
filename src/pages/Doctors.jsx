@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Doctors() {
-  // වෛද්‍යවරුන්ගේ දත්ත
+  
   const doctorsList = [
     { id: 1, name: "Dr. Sarah Johnson", specialty: "Cardiology", experience: "15 Years", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" },
     { id: 2, name: "Dr. Michael Lee", specialty: "Neurology", experience: "12 Years", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" },

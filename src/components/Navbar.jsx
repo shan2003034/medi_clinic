@@ -6,7 +6,7 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
 
-    // Link එක Active ද කියලා බලන ෆන්ක්ෂන් එක
+   
     const isActive = (path) => location.pathname === path;
 
     return (
