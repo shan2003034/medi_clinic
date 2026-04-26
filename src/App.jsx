@@ -6,6 +6,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Doctors from './pages/Doctors';
 import Contact from './pages/Contact';
+import Appointments from './pages/Appointments';
 
 // මේවා අපි ටෙස්ට් කරන්න හදපු තාවකාලික පිටු (Dummy Pages)
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
          <Route path="/doctors" element={<Doctors />} />
+         <Route path="/appointments" element={<Appointments />} />
       </Routes>
       
       <Footer />
