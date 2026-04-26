@@ -3,10 +3,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
+import Services from './pages/Services';
 
 // මේවා අපි ටෙස්ට් කරන්න හදපු තාවකාලික පිටු (Dummy Pages)
 
-const Services = () => <div className="py-32 text-center text-3xl font-bold text-gray-700">Services Page එක ළඟදීම බලාපොරොත්තු වන්න...</div>;
+
 const Contact = () => <div className="py-32 text-center text-3xl font-bold text-gray-700">Contact Us Page එක ළඟදීම බලාපොරොත්තු වන්න...</div>;
 
 function App() {
