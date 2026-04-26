@@ -78,7 +78,7 @@ function Home() {
         </div>
       </section>
 
-      
+      {/* service section */}
       <section className="py-20 px-6">
         <div className="container mx-auto">
           <div className="text-center mb-16">
