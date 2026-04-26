@@ -28,7 +28,8 @@ function Navbar() {
                             { name: 'Services', path: '/services' },
                             { name: 'Doctors', path: '/doctors' },
                             { name: 'About Us', path: '/about' },
-                            { name: 'Contact', path: '/contact' }
+                            { name: 'Contact', path: '/contact' },
+                            { name: 'Appointments', path: '/appointments' }
                         ].map((link) => (
                             <li key={link.name}>
                                 <Link 
@@ -72,7 +73,8 @@ function Navbar() {
                             { name: 'Services', path: '/services' },
                             { name: 'Doctors', path: '/doctors' },
                             { name: 'About Us', path: '/about' },
-                            { name: 'Contact', path: '/contact' }
+                            { name: 'Contact', path: '/contact' },
+                            { name: 'Appointments', path: '/appointments' }
                         ].map((link) => (
                             <li key={link.name}>
                                 <Link 
