@@ -6,7 +6,7 @@ import SuccessModal from '../components/SuccessModal';
 function Appointments() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // ෆෝම් එක Submit කළාම Modal එක Open වෙනවා
+  
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     setIsModalOpen(true);
