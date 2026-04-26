@@ -24,6 +24,9 @@ function Navbar() {
                             <Link to="/">Home</Link>
                         </li>
                         <li className="hover:text-blue-600 cursor-pointer transition">
+                            <Link to="/services">Services</Link>
+                        </li>
+                        <li className="hover:text-blue-600 cursor-pointer transition">
                             <Link to="/doctors">Doctors</Link>
                         </li>
                         <li className="hover:text-blue-600 cursor-pointer transition">
@@ -67,6 +70,9 @@ function Navbar() {
                         {/* ලින්ක් එකක් ක්ලික් කරපු ගමන් මෙනු එක වැහෙන්න onClick එකක් දැම්මා */}
                         <li className="hover:text-blue-600 cursor-pointer transition">
                             <Link to="/" onClick={() => setIsOpen(false)} className="block w-full">Home</Link>
+                        </li>
+                        <li className="hover:text-blue-600 cursor-pointer transition">
+                            <Link to="/services" onClick={() => setIsOpen(false)} className="block w-full">Services</Link>
                         </li>
                         <li className="hover:text-blue-600 cursor-pointer transition">
                             <Link to="/doctors" onClick={() => setIsOpen(false)} className="block w-full">Doctors</Link>
