@@ -44,9 +44,9 @@ function Navbar() {
                         ))}
                     </ul>
                     <div className="ml-6 pl-6 border-l border-slate-200">
-                        <Link to="/appointments">
+                        <Link to="/login">
                             <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-300 font-bold text-sm">
-                                Book Now
+                                Login
                             </button>
                         </Link>
                     </div>
@@ -87,9 +87,9 @@ function Navbar() {
                             </li>
                         ))}
                         <li className="pt-4 mt-2 border-t border-slate-100">
-                            <Link to="/appointments" onClick={() => setIsOpen(false)}>
+                            <Link to="/login" onClick={() => setIsOpen(false)}>
                                 <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-2xl font-bold shadow-md">
-                                    Book Appointment
+                                    Login
                                 </button>
                             </Link>
                         </li>
