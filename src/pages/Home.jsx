@@ -33,7 +33,7 @@ function Home() {
               </p>
               
               <h1 className="text-5xl md:text-6xl font-extrabold text-blue-900 leading-tight mb-5">
-                Medical Center
+                Medi Clinic
               </h1>
               
               <h2 className="text-3xl font-bold text-gray-800 mb-10">
