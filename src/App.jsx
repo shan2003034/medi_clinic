@@ -12,15 +12,20 @@ import SignUp from './pages/SignUp';
 import NotFound from './pages/NotFound';
 import PatientLayout from './components/PatientLayout';
 import Dashboard from './components/Dashboard';
+import MyAppointments from './pages/MyAppointments';
+import MedicalRecords from './pages/MedicalRecords';
+import LabResults from './pages/LabResults';
+import Billing from './pages/Billing';
+import Settings from './pages/Settings';
 
 
 function App() {
   return (
-   
+
     <Router>
       <Navbar />
 
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -40,6 +45,51 @@ function App() {
             </PatientLayout>
           }
         />
+        <Route
+          path="/my-appointments"
+          element={
+            <PatientLayout>
+              <MyAppointments />
+            </PatientLayout>
+          }
+        />
+
+        <Route
+          path="/records"
+          element={
+            <PatientLayout>
+              <MedicalRecords />
+            </PatientLayout>
+          }
+        />
+
+        <Route
+          path="/lab-results"
+          element={
+            <PatientLayout>
+              <LabResults />
+            </PatientLayout>
+          }
+        />
+
+        <Route
+          path="/billing"
+          element={
+            <PatientLayout>
+              <Billing />
+            </PatientLayout>
+          }
+        />
+
+        <Route
+          path="/settings"
+          element={
+            <PatientLayout>
+              <Settings />
+            </PatientLayout>
+          }
+        />
+
       </Routes>
 
       <Footer />
