@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SuccessModal({ isOpen, onClose }) {
+function SuccessModal({ isOpen, onClose, title = "Booking Confirmed!", message }) {
   if (!isOpen) return null;
 
   return (
@@ -9,9 +9,10 @@ function SuccessModal({ isOpen, onClose }) {
         <div className="w-20 h-20 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
           <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
         </div>
-        <h3 className="text-2xl font-extrabold text-slate-800 mb-2">Booking Confirmed!</h3>
-        <p className="text-slate-500 mb-8 leading-relaxed">
-          Your appointment request has been received. Our team will contact you shortly to confirm the exact time.
+        <h3 className="text-2xl font-extrabold text-slate-800 mb-2">{title}</h3>
+        <p className="text-slate-500 mb-8 leading-relaxed font-medium">
+          {/* පිටින් එවන මැසේජ් එක මෙතන පෙන්නනවා */}
+          {message || "Your request has been processed successfully."}
         </p>
         <button 
           onClick={onClose}
