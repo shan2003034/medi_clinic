@@ -12,11 +12,21 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   // 2. පේජ් එක ලෝඩ් වෙද්දී Backend එකෙන් දත්ත ගේනවා
+  // Dashboard.jsx හි useEffect කොටස
   useEffect(() => {
-    fetch('http://localhost:8080/api/patients/1/dashboard')
+    const token = localStorage.getItem('token'); // 1. Token එක ගන්නවා
+
+    // 2. URL එක 'me/dashboard' විදිහට වෙනස් කළා සහ Token එක Header එකේ යවනවා
+    fetch('http://localhost:8080/api/patients/me/dashboard', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
       .then(res => {
         if (!res.ok) {
-          throw new Error('API is not ready yet! (404)'); // API එක නැත්නම් මෙතනින්ම නවත්තනවා
+          throw new Error('API request failed'); 
         }
         return res.json();
       })
@@ -26,7 +36,6 @@ function Dashboard() {
       })
       .catch(err => {
         console.error("Error fetching dashboard data:", err);
-        // Error එකක් ආවොත් initial state එක වෙනස් කරන්නේ නෑ!
         setLoading(false);
       });
   }, []);

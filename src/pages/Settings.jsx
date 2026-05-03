@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-// 1. Default Image එකක් Variable එකකට දාගත්තා (ලෝඩ් වෙද්දී පින්තූරයක් නැත්නම් මේක පෙන්වන්න)
 const DEFAULT_PROFILE_PIC = "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200&auto=format&fit=crop";
 
 function Settings() {
@@ -27,9 +26,17 @@ function Settings() {
 
   const [message, setMessage] = useState({ type: '', text: '' });
 
-  // 2. පේජ් එක ලෝඩ් වෙද්දී DB එකෙන් දත්ත ගේනවා
+  // 1. පේජ් එක ලෝඩ් වෙද්දී DB එකෙන් දත්ත ගේනවා (Updated with Token)
   useEffect(() => {
-    fetch('http://localhost:8080/api/patients/1/profile')
+    const token = localStorage.getItem('token'); // Token එක ගන්නවා
+
+    fetch('http://localhost:8080/api/patients/me/profile', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`, // Token එක යවනවා
+        'Content-Type': 'application/json'
+      }
+    })
       .then(res => res.json())
       .then(data => {
         setProfileData({
@@ -43,7 +50,6 @@ function Settings() {
           emergencyContactPhone: data.emergencyContactPhone || ''
         });
 
-        // 👇 අලුතින් එකතු කරපු කෑල්ල: DB එකේ Image Path එකක් තියෙනවා නම් ඒක ලෝඩ් කරනවා
         if (data.profilePicPath) {
           setProfilePic(`http://localhost:8080/${data.profilePicPath}`);
         } else {
@@ -63,22 +69,24 @@ function Settings() {
     setPasswordData(prev => ({ ...prev, [name]: value }));
   };
 
-  // 3. Profile Picture Update Logic එක (API එකට Upload කිරීම)
+  // 2. Profile Picture Update Logic (Updated with Token)
   const handleEditPictureClick = () => fileInputRef.current.click();
   
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      // තෝරපු ගමන් UI එකේ පින්තූරේ මාරු කරනවා (Preview)
       setProfilePic(URL.createObjectURL(file));
 
-      // FormData එකක් හදලා Backend එකට යවනවා
       const formData = new FormData();
       formData.append("file", file);
+      const token = localStorage.getItem('token');
 
-      fetch('http://localhost:8080/api/patients/1/profile-picture', {
+      fetch('http://localhost:8080/api/patients/me/profile-picture', {
         method: 'POST',
-        body: formData, // JSON නෙවෙයි, File එක යවන්නේ මෙහෙමයි
+        headers: {
+          'Authorization': `Bearer ${token}` // FormData යවන නිසා Content-Type දාන්නේ නෑ
+        },
+        body: formData,
       })
       .then(res => {
         if(res.ok) {
@@ -91,11 +99,17 @@ function Settings() {
     }
   };
 
+  // 3. Profile Details Save Logic (Updated with Token)
   const handleProfileSave = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8080/api/patients/1/profile', {
+    const token = localStorage.getItem('token');
+
+    fetch('http://localhost:8080/api/patients/me/profile', {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json' 
+      },
       body: JSON.stringify(profileData)
     })
     .then(res => {
@@ -105,6 +119,7 @@ function Settings() {
     .catch(() => setMessage({ type: 'error', text: 'Server error occurred.' }));
   };
 
+  // 4. Password Save Logic (Updated with Token)
   const handlePasswordSave = (e) => {
     e.preventDefault();
     
@@ -113,9 +128,14 @@ function Settings() {
       return;
     }
 
-    fetch('http://localhost:8080/api/patients/1/password', {
+    const token = localStorage.getItem('token');
+
+    fetch('http://localhost:8080/api/patients/me/password', {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json' 
+      },
       body: JSON.stringify({
         currentPassword: passwordData.currentPassword,
         newPassword: passwordData.newPassword
