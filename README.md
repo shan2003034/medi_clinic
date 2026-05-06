@@ -2,7 +2,7 @@
 # 🏥 MediClinic - Patient Portal
 
 <div align="center">
-  <!-- ඔයා Banner එකක් හැදුවට පස්සේ ඒකෙ ලින්ක් එක මෙතන 'src' එකට දාන්න -->
+  
   <img width="2400" height="1080" alt="Image" src="https://github.com/user-attachments/assets/f7bc89b9-2fb0-444d-ac51-c722d86adc85" />
 </div>
 
@@ -58,7 +58,7 @@ Welcome to the **Patient Portal** of the MediClinic Healthcare Management System
         <br><b>🩺 Book an Appointment</b>
       </td>
       <td align="center">
-        <!-- මේ කොටුව හිස්ව තියෙනවා පින්තූර 9ක් විතරක් තියෙන නිසා -->
+        
       </td>
     </tr>
   </table>
