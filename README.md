@@ -112,7 +112,7 @@ The application will start running at `http://localhost:5173`. Make sure the **S
 
 ## 👨‍💻 Author
 **Prasanna Lakshan**
-* 🌐 Portfolio: [https://prasanna-lakshan-portfolio.vercel.app/](https://prasanna-lakshan-portfolio.vercel.app/)
+* 🌐 Portfolio: [https://prasanna-lakshan.vercel.app/](https://prasanna-lakshan.vercel.app/)
 * 💼 LinkedIn: [https://www.linkedin.com/in/prasannalakshan](https://www.linkedin.com/in/prasannalakshan)
 * 💻 GitHub: [https://github.com/shan2003034](https://github.com/shan2003034)
 
